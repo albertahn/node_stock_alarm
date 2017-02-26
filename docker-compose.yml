@@ -1,0 +1,14 @@
+version: "2.0"
+services:
+ db:
+  image: mongo
+ web:
+  build: .
+  ports:
+      - "3000:3000"
+  links:
+    - db
+  environment:
+    - DB_PORT=tcp://db:5432
+
+      
